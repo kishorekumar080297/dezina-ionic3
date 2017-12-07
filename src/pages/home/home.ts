@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+// import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { NavController } from 'ionic-angular';
 import { ProductProvider } from "../../providers/product/product";
+import { ProductDetailPage } from '../product-detail/product-detail';
 
 @Component({
   selector: 'page-home',
@@ -21,6 +22,12 @@ export class HomePage {
       .subscribe((response) => {
           this.allProducts=response;
       });
-      
+
+  }
+  
+  goToProductDetailPage(product) {
+    this.navCtrl.push(ProductDetailPage, {
+      productDetails: product
+    });
   }
 }
