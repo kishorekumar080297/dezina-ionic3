@@ -13,13 +13,44 @@ import { FilterModalPage } from '../filter-modal/filter-modal';
 })
 export class HomePage {
   public allProducts = [];
+  public femaleSelected = true;
+  public maleSelected =true;
 
   constructor(private modalController: ModalController, private productProvider: ProductProvider, public navCtrl: NavController) {
 
   }
 
   openFilterModal() {
-    let openFilterModal = this.modalController.create(FilterModalPage);
+    let filterStateFromMainPage = {
+      femaleSelected: this.femaleSelected,
+      maleSelected: this.maleSelected
+    }
+    let openFilterModal = this.modalController.create(FilterModalPage, filterStateFromMainPage);
+    openFilterModal.onDidDismiss((filterState)=>{
+      this.femaleSelected = filterState.femaleSelected;
+      this.maleSelected = filterState.maleSelected;
+        this.productProvider.getProducts()
+          .subscribe((allProducts)=>{
+            let products = allProducts;
+            if(filterState.maleSelected && filterState.femaleSelected){
+              this.allProducts = products;
+              return;
+            }
+            else if(!filterState.maleSelected && !filterState.femaleSelected){
+              this.allProducts = [];
+            }
+            else if(filterState.maleSelected && !filterState.femaleSelected){
+              this.allProducts = products.filter((product)=>{
+                return product.gender !== "male";
+              });
+            }
+            else{
+              this.allProducts = products.filter((product)=>{
+                return product.gender !== "female";
+              });
+            }
+          });
+    });
     openFilterModal.present();
   }
 
