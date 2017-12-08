@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 // import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { ProductProvider } from "../../providers/product/product";
 import { ProductDetailPage } from '../product-detail/product-detail';
 
@@ -13,8 +13,12 @@ import { ProductDetailPage } from '../product-detail/product-detail';
 export class HomePage {
   public allProducts = [];
 
-  constructor(private productProvider: ProductProvider, public navCtrl: NavController) {
+  constructor(private modalController: ModalController, private productProvider: ProductProvider, public navCtrl: NavController) {
 
+  }
+
+  openFilterModal() {
+    // let openFilterModal = this.modalController.create();
   }
 
   ionViewDidLoad() {
@@ -24,7 +28,7 @@ export class HomePage {
       });
 
   }
-  
+
   goToProductDetailPage(product) {
     this.navCtrl.push(ProductDetailPage, {
       productDetails: product
