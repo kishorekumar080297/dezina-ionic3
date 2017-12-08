@@ -21,4 +21,8 @@ export class FilterModalPage {
     console.log('ionViewDidLoad FilterModalPage');
   }
 
+  closeModal() {
+    this.navCtrl.pop();
+  }
+
 }

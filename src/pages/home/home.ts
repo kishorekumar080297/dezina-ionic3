@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { NavController, ModalController } from 'ionic-angular';
 import { ProductProvider } from "../../providers/product/product";
 import { ProductDetailPage } from '../product-detail/product-detail';
+import { FilterModalPage } from '../filter-modal/filter-modal';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +19,8 @@ export class HomePage {
   }
 
   openFilterModal() {
-    // let openFilterModal = this.modalController.create();
+    let openFilterModal = this.modalController.create(FilterModalPage);
+    openFilterModal.present();
   }
 
   ionViewDidLoad() {
