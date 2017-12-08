@@ -31,7 +31,17 @@ import { ProductProvider } from '../providers/product/product';
     HttpModule,
     HttpClientModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      tabsPlacement: "top",
+      platforms: {
+        ios: {
+          tabsPlacement: "bottom"
+        },
+        android: {
+          tabsPlacement: "bottom"
+        }
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
