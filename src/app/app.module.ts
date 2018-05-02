@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductProvider } from '../providers/product/product';
+// import { PreviewProvider } from '../providers/preview/preview';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ProductProvider } from '../providers/product/product';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductProvider
+    // PreviewProvider
   ]
 })
 export class AppModule {}

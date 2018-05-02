@@ -459,6 +459,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// import { PreviewProvider } from '../providers/preview/preview';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -506,6 +507,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_14__providers_product_product__["a" /* ProductProvider */]
+                // PreviewProvider
             ]
         })
     ], AppModule);
